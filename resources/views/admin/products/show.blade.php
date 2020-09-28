@@ -20,7 +20,7 @@
                         <a class="btn btn-alt btn-sm btn-default"
                            href="{{route('product', [$product->categories->slug, $product->slug])}}"
                            target="_blank">
-                            <i class="fa fa-external-link" aria-hidden="true"></i>
+                            <i class="fa fa-external-link" aria-Form::hidden(="true"></i>
                         </a>
                     </div>
                 </div>
@@ -70,8 +70,8 @@
                     </tr>
                     <tr>
                         <td colspan="2">
-                            {!!open(['route' => ['admin.products.images.add',$product->id],'files' => true])!!}
-                            {{ hidden('productId', $product->id) }}
+                            {!!Form::open(['route' => ['admin.products.images.add',$product->id],'files' => true])!!}
+                            {{ Form::hidden('productId', $product->id) }}
                             <ul class="imageGallery">
                                 @foreach ($product->getMedia('products') as $photo)
                                     <li>
@@ -91,7 +91,7 @@
                             </ul>
                             <br/><br/>
                             <div id="fine-uploader-gallery"></div>
-                            {!! close() !!}
+                            {!! Form::close() !!}
                         </td>
 
                     </tr>
@@ -100,8 +100,8 @@
                     </tr>
                     <tr>
                         <td colspan="2">
-                            {!!open(['route' => ['admin.products.images.accessories.add',$product->id],'files' => true])!!}
-                            {{ hidden('productId', $product->id) }}
+                            {!!Form::open(['route' => ['admin.products.images.accessories.add',$product->id],'files' => true])!!}
+                            {{ Form::hidden('productId', $product->id) }}
                             <ul class="imageGallery">
                                 @foreach ($product->getMedia('accessories') as $photo)
                                     <li>
@@ -117,7 +117,7 @@
                             </ul>
                             <br/><br/>
                             <div id="accessory-uploader-gallery"></div>
-                            {!! close() !!}
+                            {!! Form::close() !!}
                         </td>
 
                     </tr>
@@ -134,9 +134,9 @@
                 <div class="block-title">
                     <h2>DANGER ZONE</h2>
                 </div>
-                {!! Form::open(['route' => ['admin.products.destroy', $product->id], 'method' => 'delete']) !!}
-                {!! Form::submit('DELETE PRODUCT', ['class' => 'btn btn-block btn-danger del']) !!}
-                {!! Form::close() !!}
+                {!! Form::Form::open(['route' => ['admin.products.destroy', $product->id], 'method' => 'delete']) !!}
+                {!! Form::Form::submit('DELETE PRODUCT', ['class' => 'btn btn-block btn-danger del']) !!}
+                {!! Form::Form::close() !!}
                 <br/>
             </div>
         </div>

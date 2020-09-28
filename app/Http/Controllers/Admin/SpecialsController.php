@@ -81,9 +81,7 @@ class SpecialsController extends Controller
 
         $special->save();
 
-        flash('Special Added!');
-
-        return redirect()->route('admin.specials.show', [$special->id]);
+        return redirect()->route('admin.specials.show', [$special->id])->with('message', 'Special Added!');
     }
 
 
@@ -112,9 +110,7 @@ class SpecialsController extends Controller
 
         $special->save();
 
-        flash('Special updated!');
-
-        return redirect()->route('admin.specials.show', $special->id);
+        return redirect()->route('admin.specials.show', $special->id)->with('message', 'Special updated!');
     }
 
 
@@ -130,9 +126,7 @@ class SpecialsController extends Controller
     {
         $special->delete();
 
-        flash('Special deleted!');
-
-        return redirect()->route('admin.specials.index');
+        return redirect()->route('admin.specials.index')->with('message', 'Special deleted!');
     }
 
 
@@ -147,9 +141,9 @@ class SpecialsController extends Controller
     {
         $special->deleteMedia($imageId);
 
-        flash('Image deleted!');
+        
 
-        return redirect()->back();
+        return redirect()->back()->with('message', 'Image deleted!');
     }
 
 }

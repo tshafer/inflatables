@@ -5,18 +5,19 @@ use App\Support\Traits\Attributes;
 use App\Support\Traits\Linkable;
 use App\Support\Traits\Sortable;
 use Czim\Listify\Listify;
-use Iatstuti\Database\Support\CascadeSoftDeletes;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\DB;
-use MartinBean\Database\Eloquent\Sluggable;
-use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
-use Spatie\MediaLibrary\HasMedia\Interfaces\HasMediaConversions;
+use Spatie\Sluggable\HasSlug;
+use Spatie\Sluggable\SlugOptions;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-class Product extends Model implements HasMediaConversions
+class Product extends Model implements HasMedia
 {
 
-    use Linkable, Sortable, Attributes, Sluggable, HasMediaTrait, SoftDeletes, CascadeSoftDeletes, Listify;
+    use Linkable, Sortable, Attributes, HasSlug, InteractsWithMedia, SoftDeletes, Listify;
 
     /**
      * The database table used by the model.
@@ -64,11 +65,20 @@ class Product extends Model implements HasMediaConversions
         ]);
     }
 
+    /**
+     * Get the options for generating the slug.
+     */
+    public function getSlugOptions() : SlugOptions
+    {
+        return SlugOptions::create()
+            ->generateSlugsFrom('name')
+            ->saveSlugsTo('slug');
+    }
 
     /**
      * Convert Images
      */
-    public function registerMediaConversions()
+        public function registerMediaConversions(Media $media = null): void
     {
 
         $this->addMediaConversion('thumb')->setManipulations(['h' => 150, 'w' => 150, 'fit' => 'crop'])->performOnCollections('products');

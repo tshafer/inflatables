@@ -6,7 +6,7 @@
 
     <div class="container main-container">
         <div class="row">
-            @include('flash::messages')
+            @include('partials.flash')
             <div class="col-lg-3 col-md-3 col-sm-12">
                 <div class="no-padding">
                     <span class="title">OUR LOCATION</span>
@@ -15,7 +15,7 @@
                 450 31st St.<br/>
                 Kenner, LA 70065<br/>
                 Phone:<br/>
-                Email: {{ mailto('sales@herecomesfun.com', 'sales@herecomesfun.com') }}<br/>
+                Email: <a href="mailto:sales@herecomesfun.com">sales@herecomesfun.com</a><br/>
             </div>
             <div class="col-lg-9 col-md-9 col-sm-12">
 
@@ -26,26 +26,26 @@
                     deals, or product specifications you need! Interested in learning more about the inflatable
                     industry? We have over 55 years of experience helping inflatable renters and operators around the
                     country find success.</p>
-                {{ open(['route' => 'contact.post']) }}
+                {{ Form::open(['route' => 'contact.post']) }}
 
                 <div class="row form-group">
                     <div class="col-md-12">
-                        {{ label('name', 'Your Name') }}
-                        {{ input('text','name', old('name'), ['class' => 'form-control', 'required']) }}
+                        {{ Form::label('name', 'Your Name') }}
+                        {{ Form::input('text','name', old('name'), ['class' => 'form-control', 'required']) }}
                     </div>
                 </div>
 
                 <div class="row form-group">
                     <div class="col-md-12">
-                        {{ label('email', 'Email') }}
-                        {{ input('email','email', old('email'), ['class' => 'form-control', 'required']) }}
+                        {{ Form::label('email', 'Email') }}
+                        {{ Form::input('email','email', old('email'), ['class' => 'form-control', 'required']) }}
                     </div>
                 </div>
 
                 <div class="row form-group">
                     <div class="col-md-12">
-                        {{ label('message', 'Message')}}
-                        {{ textarea('message', old('message'), ['class' => 'form-control', 'rows' => 10, 'required']) }}
+                        {{ Form::label('message', 'Message')}}
+                        {{ Form::textarea('message', old('message'), ['class' => 'form-control', 'rows' => 10, 'required']) }}
                     </div>
                 </div>
                 <div class="row form-group">

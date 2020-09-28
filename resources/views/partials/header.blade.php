@@ -23,7 +23,7 @@
 <header>
     <div class="container">
         <div class="row">
-            <div class="col-md-3 hidden-sm hidden-xs">
+            <div class="col-md-3 Form::hidden(-sm Form::hidden(-xs">
                 <div class="well logo">
                     <a href="{{route('home')}}"><img src="/images/swlogo.png" class="img-responsive" /></a>
                 </div>
@@ -49,11 +49,11 @@
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
                 <li><a href="{{route('home')}}" class="{{active_class('home')}}">
-                        <i class="fa fa-home" aria-hidden="true"></i>&nbsp;Home</a>
+                        <i class="fa fa-home" aria-Form::hidden(="true"></i>&nbsp;Home</a>
                 </li>
                 <li class="nav-dropdown">
                     <a href="#" class="{{active_class('category/*')}} dropdown-toggle" data-toggle="dropdown">
-                        <i class="fa fa-list" aria-hidden="true"></i>&nbsp;Categories <span class="caret"></span>
+                        <i class="fa fa-list" aria-Form::hidden(="true"></i>&nbsp;Categories <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
                         @foreach($categories as $category)
@@ -69,14 +69,14 @@
                         @endforeach
                     </ul>
                 </li>
-                <li><a href="{{route('special')}}"><i class="fa fa-gift" aria-hidden="true"></i>&nbsp;Specials</a></li>
-                <li><a href="{{route('cart.index')}}"><i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;Checkout</a>
+                <li><a href="{{route('special')}}"><i class="fa fa-gift" aria-Form::hidden(="true"></i>&nbsp;Specials</a></li>
+                <li><a href="{{route('cart.index')}}"><i class="fa fa-shopping-cart" aria-Form::hidden(="true"></i>&nbsp;Checkout</a>
                 </li>
-                <li><a href="{{ route('contact') }}"><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;Contact</a>
-                <li><a href="/pdf/SpaceWalkSales_2018_Catalog.pdf" download="SpaceWalkSales_2018_Catalog"><i class="fa fa-file-pdf-o" aria-hidden="true"></i>&nbsp;Download Catalog</a>
+                <li><a href="{{ route('contact') }}"><i class="fa fa-envelope" aria-Form::hidden(="true"></i>&nbsp;Contact</a>
+                <li><a href="/pdf/SpaceWalkSales_2018_Catalog.pdf" download="SpaceWalkSales_2018_Catalog"><i class="fa fa-file-pdf-o" aria-Form::hidden(="true"></i>&nbsp;Download Catalog</a>
                 </li>
             </ul>
-            <div class="pull-right cart-menu hidden-sm hidden-xs">
+            <div class="pull-right cart-menu Form::hidden(-sm Form::hidden(-xs">
                 <div class="btn-group btn-group-cart">
                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                         <span class="pull-left"><i class="fa fa-shopping-cart icon-cart"></i></span>

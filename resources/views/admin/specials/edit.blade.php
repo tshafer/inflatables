@@ -10,6 +10,6 @@
 
         @include('admin.specials.form')
 
-        {!!close()!!}
+        {!!Form::close()!!}
     </div>
 @stop

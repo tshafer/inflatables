@@ -17,7 +17,7 @@
 
       {!! model($user, ['route' => ['admin.users.update', $user->id], 'method' => 'patch']) !!}
         @include('admin.users.form')
-      {!! close() !!}
+      {!! Form::close() !!}
     </div>
   </div>
 

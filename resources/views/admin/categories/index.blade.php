@@ -39,18 +39,18 @@
                                 @if(!$loop->first)
                                     <a class="btn btn-xs btn-warning"
                                        href="{{route('admin.categories.moveup', $category->id)}}">
-                                        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+                                        <i class="fa fa-arrow-up" aria-Form::hidden(="true"></i>
                                     </a>
                                 @endif
                                 @if(!$loop->last)
                                     <a class="btn btn-xs btn-warning"
                                        href="{{route('admin.categories.movedown', $category->id)}}"><i
-                                                class="fa fa-arrow-down" aria-hidden="true"></i></a>
+                                                class="fa fa-arrow-down" aria-Form::hidden(="true"></i></a>
                                 @endif
                             @endif
                             <a class="btn btn-xs btn-warning" href="{{route('category', $category->slug)}}"
                                target="_blank">
-                                <i class="fa fa-external-link" aria-hidden="true"></i>
+                                <i class="fa fa-external-link" aria-Form::hidden(="true"></i>
                             </a>
                         </td>
 

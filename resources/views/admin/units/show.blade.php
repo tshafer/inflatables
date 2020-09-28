@@ -68,9 +68,9 @@
                 <div class="block-title">
                     <h2>DANGER ZONE</h2>
                 </div>
-                {!! Form::open(['route' => ['admin.units.destroy', $unit->id], 'method' => 'delete']) !!}
-                {!! Form::submit('DELETE UNIT', ['class' => 'btn btn-block btn-danger del']) !!}
-                {!! Form::close() !!}
+                {!! Form::Form::open(['route' => ['admin.units.destroy', $unit->id], 'method' => 'delete']) !!}
+                {!! Form::Form::submit('DELETE UNIT', ['class' => 'btn btn-block btn-danger del']) !!}
+                {!! Form::Form::close() !!}
                 <br/>
             </div>
         </div>

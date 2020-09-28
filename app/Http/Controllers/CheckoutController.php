@@ -35,12 +35,13 @@ class CheckoutController extends Controller
             'last_name'       => 'required',
             'email'           => 'required|email',
             'phone'           => 'required|regex:/^\+?[^a-zA-Z]{5,}$/',
-            'company_website' => 'url',
+            'company_website' => 'nullable|url',
         ]);
 
         $unitRequest       = UnitRequest::create($request->all());
         $unitRequest->cart =  Cart::instance(session('cartId'))->content()->toJson();
         $unitRequest->save();
+
 
         foreach (Cart::instance(session('cartId'))->content() as $unit) {
             $unitRequest->units()->attach($unit->id);

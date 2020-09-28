@@ -71,7 +71,7 @@
                                         <tr>
                                             <td data-th="Product">
                                                 <div class="row">
-                                                    <div class="col-sm-4 hidden-xs">
+                                                    <div class="col-sm-4 Form::hidden(-xs">
                                                         @if($unit->options->image)
                                                             <a href="{{route('product', [$unit->options->categorySlug, $unit->options->productSlug])}}">
                                                                 <img src="{{$unit->options->image}}"
@@ -97,7 +97,7 @@
                                     </tbody>
                                     <tfoot>
                                     <tr>
-                                        <td class="hidden-xs"></td>
+                                        <td class="Form::hidden(-xs"></td>
                                         <td class="total text-center">Total:
                                             ${{number_format($total,2)}}
                                     </tr>
@@ -116,9 +116,9 @@
                 <div class="block-title">
                     <h2>DANGER ZONE</h2>
                 </div>
-                {!! Form::open(['route' => ['admin.unitrequests.destroy', $unitRequest->id], 'method' => 'delete']) !!}
-                {!! Form::submit('DELETE REQUEST', ['class' => 'btn btn-block btn-danger del']) !!}
-                {!! Form::close() !!}
+                {!! Form::Form::open(['route' => ['admin.unitrequests.destroy', $unitRequest->id], 'method' => 'delete']) !!}
+                {!! Form::Form::submit('DELETE REQUEST', ['class' => 'btn btn-block btn-danger del']) !!}
+                {!! Form::Form::close() !!}
                 <br/>
             </div>
         </div>

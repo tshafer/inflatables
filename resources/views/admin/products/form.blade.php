@@ -7,22 +7,22 @@
         <div class="form-bordered">
 
             <div class="form-group">
-                {!! label('category') !!}
+                {!! Form::label('category') !!}
                 {!! select('categories', $nestedList, $parentId, ['class' => 'form-control']) !!}
             </div>
 
             <div class="form-group">
-                {!! label('name') !!}
-                {!! text('name', null, ['class' => 'form-control']) !!}
+                {!! Form::label('name') !!}
+                {!! Form::text('name', null, ['class' => 'form-control']) !!}
             </div>
 
             <div class="form-group">
-                {!! label('description') !!}
-                {!! textarea('description', null, ['class' => 'form-control']) !!}
+                {!! Form::label('description') !!}
+                {!! Form::textarea('description', null, ['class' => 'form-control']) !!}
             </div>
 
             <div class="form-group">
-                {!! label('accessories') !!}<br/>
+                {!! Form::label('accessories') !!}<br/>
                 @if(isset($product))
                     You can manage accessories <a href="{{route('admin.products.show', $product->id)}}">here</a>.
                 @else
@@ -31,16 +31,16 @@
             </div>
 
             <div class="form-group">
-                {!! label('Wet') !!}
+                {!! Form::label('Wet') !!}
                 {!! radio('season', 'wet', null) !!}
-                {!! label('Dry') !!}
+                {!! Form::label('Dry') !!}
                 {!! radio('season', 'dry', null) !!}
-                {!! label('Both') !!}
+                {!! Form::label('Both') !!}
                 {!! radio('season', 'both', null) !!}
             </div>
 
             <div class="form-group">
-                {!! label('images') !!}<br/>
+                {!! Form::label('images') !!}<br/>
                 @if(isset($product))
                     You can manage images <a href="{{route('admin.products.show', $product->id)}}">here</a>.
                 @else
@@ -49,12 +49,12 @@
             </div>
 
             <div class=" form-group">
-                {!! label('enabled') !!}
+                {!! Form::label('enabled') !!}
                 {!! checkbox('enabled', true) !!}
             </div>
 
             <div class=" form-group">
-                {!! label('featured') !!}
+                {!! Form::label('featured') !!}
                 {!! checkbox('featured') !!}
             </div>
         </div>
@@ -62,7 +62,7 @@
     </div>
 
     <div class="form-group form-actions">
-        {!!submit('Save Product', ['class' => 'btn btn-block btn-primary'])!!}
+        {!!Form::submit('Save Product', ['class' => 'btn btn-block btn-primary'])!!}
     </div>
 </div>
 

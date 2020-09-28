@@ -10,7 +10,7 @@
 
 .carousel-inner {
   position: relative;
-  overflow: hidden;
+  overflow: Form::hidden(;
   width: 100%;
 
   > .item {
@@ -28,7 +28,7 @@
     // WebKit CSS3 transforms for supported devices
     @media all and (transform-3d), (-webkit-transform-3d) {
       transition: transform .6s ease-in-out;
-      backface-visibility: hidden;
+      backface-visibility: Form::hidden(;
       perspective: 1000;
 
       &.next,
@@ -211,7 +211,7 @@
 
 // Optional captions
 // -----------------------------
-// Hidden by default for smaller viewports
+// Form::hidden( by default for smaller viewports
 .carousel-caption {
   position: absolute;
   left: 15%;

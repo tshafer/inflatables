@@ -6,14 +6,16 @@ use App\Support\Traits\Linkable;
 use App\Support\Traits\Sortable;
 use Baum\Node;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use MartinBean\Database\Eloquent\Sluggable;
-use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
-use Spatie\MediaLibrary\HasMedia\Interfaces\HasMediaConversions;
+use Spatie\Sluggable\HasSlug;
+use Spatie\Sluggable\SlugOptions;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-class Category extends Node implements HasMediaConversions
+class Category extends Node implements HasMedia
 {
 
-    use Linkable, Sortable, Attributes, Sluggable, HasMediaTrait, SoftDeletes;
+    use Linkable, Sortable, Attributes, HasSlug, InteractsWithMedia, SoftDeletes;
 
     /**
      * The database table used by the model.
@@ -58,9 +60,19 @@ class Category extends Node implements HasMediaConversions
 
 
     /**
+     * Get the options for generating the slug.
+     */
+    public function getSlugOptions() : SlugOptions
+    {
+        return SlugOptions::create()
+            ->generateSlugsFrom('name')
+            ->saveSlugsTo('slug');
+    }
+
+    /**
      * Convert Images
      */
-    public function registerMediaConversions()
+    public function registerMediaConversions(Media $media = null): void
     {
 
         $this->addMediaConversion('thumb')->setManipulations(['w' => 240])->performOnCollections('*');

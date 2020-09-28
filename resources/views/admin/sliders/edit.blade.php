@@ -10,6 +10,6 @@
 
         @include('admin.sliders.form')
 
-        {!!close()!!}
+        {!!Form::close()!!}
     </div>
 @stop

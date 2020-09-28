@@ -10,11 +10,11 @@
         <h2>User Details</h2>
       </div>
 
-      {!! open(['route' => 'admin.users.store']) !!}
+      {!! Form::open(['route' => 'admin.users.store']) !!}
 
         @include('admin.users.form')
 
-      {!! close() !!}
+      {!! Form::close() !!}
     </div>
   </div>
 

@@ -43,7 +43,7 @@
                             </h1>
                         </div>
                     </div>
-                    @include('flash::messages')
+                    @include('partials.flash')
                     @yield('content')
 
                     <div class="clearfix"></div>

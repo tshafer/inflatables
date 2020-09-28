@@ -63,7 +63,7 @@ class SiteController extends Controller
     public function special()
     {
         $specials = Special::all();
-
+        
         return view('specials', compact('specials'));
     }
 
@@ -109,9 +109,7 @@ class SiteController extends Controller
 
         });
 
-        flash('Thank you for contacting us. We will be in touch soon.');
-
-        return redirect()->route('contact');
+        return redirect()->route('contact')->with('message', 'Thank you for contacting us. We will be in touch soon.');
     }
 
 

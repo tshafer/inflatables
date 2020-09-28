@@ -30,17 +30,17 @@
         <div class="row">
             <div class="col-lg-12 col-md-12">
                 <div class="well">
-                    {{open(['route' => 'search'])}}
+                    {{Form::open(['route' => 'search'])}}
                     <div class="input-group">
 
-                        {{ input('text', 'q', null, ['class' => 'form-control input-search', 'placeholder' => 'Enter Something to Search']) }}
+                        {{ Form::input('text', 'q', null, ['class' => 'form-control input-search', 'placeholder' => 'Enter Something to Search']) }}
                         <span class="input-group-btn">
                             <button class="btn btn-default no-border-left" type="submit"><i class="fa fa-search"></i>
                             </button>
                         </span>
 
                     </div>
-                    {{close()}}
+                    {{Form::close()}}
                 </div>
             </div>
         </div>

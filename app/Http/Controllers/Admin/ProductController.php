@@ -65,6 +65,7 @@ class ProductController extends Controller
         asort($nestedList);
 
         $parentId = $product->categories()->first();
+
         $parentId = isset($parentId) ? $parentId->id : null;
 
         return view('admin.products.edit', compact('product', 'nestedList', 'parentId'));
@@ -102,9 +103,7 @@ class ProductController extends Controller
         ];
         $product = $this->runSave($request, $rules);
 
-        flash('Product Added!');
-
-        return redirect()->route('admin.products.show', [$product->id]);
+        return redirect()->route('admin.products.show', [$product->id])->with('message', 'Product Added!');
     }
 
 
@@ -161,9 +160,7 @@ class ProductController extends Controller
 
         $this->runUpdate($request, $rules, $product);
 
-        flash('Product updated!');
-
-        return redirect()->route('admin.products.show', $product->id);
+        return redirect()->route('admin.products.show', $product->id)->with('message', 'Product updated!');
     }
 
 
@@ -219,9 +216,7 @@ class ProductController extends Controller
 
         $product->delete();
 
-        flash('Product deleted!');
-
-        return redirect()->route('admin.products.index');
+        return redirect()->route('admin.products.index')->with('message', 'Product deleted!');
     }
 
 
@@ -242,12 +237,11 @@ class ProductController extends Controller
             }
         }
 
-        $image                    = $product->media->find($imageId);
+        $image = $product->media->find($imageId);
         $image->custom_properties = ['default' => true];
         $image->save();
-        flash('Image Set as Default!');
 
-        return redirect()->back();
+        return redirect()->back()->with('message', 'Image Set as Default!')->with('message', 'Image Set as Default!');
     }
 
 
@@ -262,9 +256,7 @@ class ProductController extends Controller
     {
         $product->deleteMedia($imageId);
 
-        flash('Image deleted!');
-
-        return redirect()->back();
+        return redirect()->back()->with('message', 'Image deleted!');
     }
 
 
@@ -279,9 +271,7 @@ class ProductController extends Controller
     {
         $product->deleteMedia($imageId);
 
-        flash('Image deleted!');
-
-        return redirect()->back();
+        return redirect()->back()->with('message', 'Image deleted!');
     }
 
 
@@ -328,9 +318,7 @@ class ProductController extends Controller
 
         $product->moveHigher();
 
-        flash('Product ' . $product->name . ' Moved Higher!');
-
-        return redirect()->back();
+        return redirect()->back()->with('message', 'Product ' . $product->name . ' Moved Higher!');
     }
 
 
@@ -344,9 +332,7 @@ class ProductController extends Controller
     {
         $product->moveToTop();
 
-        flash('Product ' . $product->name . ' Moved to Top!');
-
-        return redirect()->back();
+        return redirect()->back()->with('message', 'Product ' . $product->name . ' Moved to Top!');
     }
 
 
@@ -360,9 +346,7 @@ class ProductController extends Controller
     {
         $product->moveToBottom();
 
-        flash('Product ' . $product->name . ' Moved to Bottom!');
-
-        return redirect()->back();
+        return redirect()->back()->with('status', 'Product '. $product->name . ' Moved to Bottom!');
     }
 
 
@@ -375,9 +359,7 @@ class ProductController extends Controller
 
         $product->moveLower();
 
-        flash('Product ' . $product->name . ' Moved Lower!');
-
-        return redirect()->back();
+        return redirect()->back()->with('status', 'Product ' . $product->name . ' Moved Lower!');
     }
 
 }

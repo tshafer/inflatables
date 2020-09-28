@@ -6,13 +6,14 @@ use App\Support\Traits\Linkable;
 use App\Support\Traits\Sortable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
-use Spatie\MediaLibrary\HasMedia\Interfaces\HasMediaConversions;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-class Slider extends Model implements HasMediaConversions
+class Slider extends Model implements HasMedia
 {
 
-    use Linkable, Sortable, Attributes, HasMediaTrait, SoftDeletes;
+    use Linkable, Sortable, Attributes, InteractsWithMedia, SoftDeletes;
 
     /**
      * The database table used by the model.
@@ -41,7 +42,7 @@ class Slider extends Model implements HasMediaConversions
     /**
      * Convert Images
      */
-    public function registerMediaConversions()
+    public function registerMediaConversions(Media $media = null): void
     {
 
         $this->addMediaConversion('thumb')->setManipulations(['w' => 240])->performOnCollections('*');

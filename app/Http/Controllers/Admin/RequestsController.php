@@ -48,9 +48,7 @@ class RequestsController extends Controller
 
         $unitRequest->delete();
 
-        flash('Request deleted!');
-
-        return redirect()->route('admin.unitrequests.index');
+        return redirect()->route('admin.unitrequests.index')->with('status', 'Request deleted!');
     }
 
 }

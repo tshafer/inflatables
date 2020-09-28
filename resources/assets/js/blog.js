@@ -183,7 +183,7 @@ $(function(){
 			// and go to page
 			if($('#finder-tools ul').height() == finderHeight) {
 				var url = $('li.active-item').attr('title');
-				window.open(url, '_parent');
+				window.Form::open(url, '_parent');
 			}
 		});
 
@@ -193,7 +193,7 @@ $(function(){
 
 	$('a#finder-submit').click(function(){
 		var url = $('li.active-item').attr('title');
-		window.open(url, '_parent');
+		window.Form::open(url, '_parent');
 	});
 
 

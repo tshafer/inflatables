@@ -76,9 +76,7 @@ class UsersController extends Controller
 
         $user->save();
 
-        flash('User Added!');
-
-        return redirect()->route('admin.users.show', [$user->id]);
+        return redirect()->route('admin.users.show', [$user->id])->with('message', 'User Added!');
     }
 
 
@@ -96,9 +94,7 @@ class UsersController extends Controller
 
         $user->save();
 
-        flash('User updated!');
-
-        return redirect()->route('admin.users.show', $user->id);
+        return redirect()->route('admin.users.show', $user->id)->with('message', 'User updated!');
     }
 
     /**
@@ -112,16 +108,13 @@ class UsersController extends Controller
     public function destroy(User $user)
     {
         if ($user->id != Auth::user()->id) {
+        
             $user->delete();
 
-            flash('User deleted!');
-
-            return redirect()->route('admin.users.index');
+            return redirect()->route('admin.users.index')->with('message', 'User deleted!');
         }
 
-        flash('You can not delete yourself.');
-
-        return redirect()->route('admin.users.index');
+        return redirect()->route('admin.users.index')->with('message', 'You can not delete yourself.');
     }
 
 }

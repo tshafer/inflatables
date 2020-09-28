@@ -13,7 +13,7 @@
         <div class="row hero-feature">
 
             <div class="col-md-8 col-sm-12 col-xs-12">
-                <ul id="imageGallery" class="cS-hidden">
+                <ul id="imageGallery" class="cS-Form::hidden(">
                     @foreach ($product->getMedia('products') as $photo)
                         <li data-thumb="{{$photo->getUrl('thumb') }}" data-src="{{$photo->getUrl('full') }}">
                             <img src="{{$photo->getUrl('medium') }}" class="img-responsive"/>
@@ -49,12 +49,12 @@
                                             <td>{{$unit->weight}}</td>
                                             <td>${{number_format($unit->price,2)}}</td>
                                             <td>
-                                                {{open(['route' => 'cart.store'])}}
-                                                {{ hidden('unit', $unit->id) }}
+                                                {{Form::open(['route' => 'cart.store'])}}
+                                                {{ Form::hidden('unit', $unit->id) }}
                                                 <button type="submit" class="btn btn-primary btn-xs pull-left">
                                                     <i class="fa fa-shopping-cart"></i> Add to Cart
                                                 </button>
-                                                {{close()}}
+                                                {{Form::close()}}
                                             </td>
                                         </tr>
                                     @endforeach

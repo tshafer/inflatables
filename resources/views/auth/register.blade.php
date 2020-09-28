@@ -5,31 +5,31 @@
 @section('content')
 
         <div class="container">
-            @include('flash::messages')
+            @include('partials.flash')
             <h1 class="center">Register with Us.</h1>
             <br/>
-            {!! open(['route' => 'auth.register']) !!}
+            {!! Form::open(['route' => 'auth.register']) !!}
             <div class="form-group">
-                {!! label('Name') !!}
-                {!! text('name', null, ['class' => 'form-control']) !!}
+                {!! Form::label('Name') !!}
+                {!! Form::text('name', null, ['class' => 'form-control']) !!}
             </div>
 
             <div class="form-group">
-                {!! label('Email') !!}
+                {!! Form::label('Email') !!}
                 {!! email('email', null, ['class' => 'form-control']) !!}
             </div>
 
             <div class="form-group">
-                {!! label('Password') !!}
-                {!! password('password', ['class' => 'form-control']) !!}
+                {!! Form::label('Password') !!}
+                {!! Form::password('password', ['class' => 'form-control']) !!}
             </div>
 
             <div class="form-group">
-                {!! label('Password Confirmation') !!}
-                {!! password('password_confirmation', ['class' => 'form-control']) !!}
+                {!! Form::label('Password Confirmation') !!}
+                {!! Form::password('password_confirmation', ['class' => 'form-control']) !!}
             </div>
 
-            {!! submit('Join',['class' => 'btn btn-primary']) !!}
-            {!! close() !!}
+            {!! Form::submit('Join',['class' => 'btn btn-primary']) !!}
+            {!! Form::close() !!}
         </div>
 @endsection

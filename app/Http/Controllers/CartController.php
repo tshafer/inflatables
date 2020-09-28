@@ -35,7 +35,7 @@ class CartController extends Controller
 
         $name = strlen($unit->description) > 0 ? $unit->description : $unit->product->name;
 
-        Cart::instance(session('cartId'))->add($unit->id, $name, 1, $unit->price, [
+        Cart::instance(session('cartId'))->add($unit->id, $name, 1, $unit->price, $unit->weight,  [
             'product_name' => $unit->product->name,
             'image'        => $media,
             'productSlug'  => $unit->product->slug,
@@ -43,13 +43,10 @@ class CartController extends Controller
             'width'        => $unit->width,
             'length'       => $unit->length,
             'height'       => $unit->height,
-            'weight'       => $unit->weight,
             'model'        => $unit->model,
         ]);
 
-        Session::flash('backUrl', route('category' ,  [$category->slug]));
-
-        return redirect()->route('cart.index');
+        return redirect()->route('cart.index')->with('backUrl', route('category' ,  [$category->slug]));
     }
 
 
@@ -63,9 +60,7 @@ class CartController extends Controller
     {
         Cart::instance(session('cartId'))->remove($unitId);
 
-        flash('Item has been removed from your cart.');
-
-        return redirect()->route('cart.index');
+        return redirect()->route('cart.index')->with('message', 'Item has been removed from your cart.');
 
     }
 }

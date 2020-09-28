@@ -4,26 +4,26 @@
 
 @section('content')
     <div class="container">
-        @include('flash::messages')
+        @include('partials.flash')
         <h1 class="center">Sign into Space Walk Online</h1>
         <br/>
-        {!! open(['route' => 'auth.login', 'method' => 'post']) !!}
+        {!! Form::open(['route' => 'login', 'method' => 'post']) !!}
         <div class="form-group">
-            {!! label('email') !!}
-            {!! text('email', null, ['class' => 'form-control']) !!}
+            {!! Form::label('email') !!}
+            {!! Form::text('email', null, ['class' => 'form-control']) !!}
         </div>
 
         <div class="form-group">
-            {!! label('Password') !!}
-            {!! password('password', ['class' => 'form-control']) !!}
+            {!! Form::label('Password') !!}
+            {!! Form::password('password', ['class' => 'form-control']) !!}
         </div>
         <div class="form-group">
-            {!! link_to_route('auth.password', 'Forgot Password?') !!}
+            {!! link_to_route('password.request', 'Forgot Password?') !!}
         </div>
         <div class="form-group">
-            {!! submit('Login', ['class' => 'btn btn-primary']) !!}
+            {!! Form::submit('Login', ['class' => 'btn btn-primary']) !!}
         </div>
-        {!! close() !!}
+        {!! Form::close() !!}
     </div>
 
 @stop

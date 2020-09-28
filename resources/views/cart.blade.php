@@ -7,7 +7,7 @@
     <div class="container main-container">
         <div class="row">
             <div class="col-md-12">
-                @include('flash::messages')
+                @include('partials.flash')
                 <span class="title">SHOPPING CART</span>
                 @if(Cart::instance(session('cartId'))->count() > 0)
                     <table class="table table-bordered tbl-cart cart table-hover table-condensed">
@@ -29,7 +29,7 @@
                                                 <a href="{{route('product', [$unit->options->categorySlug, $unit->options->productSlug])}}">
                                                     <img src="{{$unit->options->image}}"
                                                          alt="{{$unit->options->product_name}}"
-                                                         title="{{$unit->options->product_name}}"/>
+                                                         title="{{$unit->options->product_name}}" style="width: 100%"/>
                                                 </a>
                                             @endif
                                         </div>
@@ -48,21 +48,21 @@
 
                                 <td class="text-center">${{number_format($unit->price,2)}}</td>
                                 <td class="actions text-center" data-th="">
-                                    {{open(['route' => ['cart.destroy',$unit->rowId], 'method' => 'delete'])}}
+                                    {{Form::open(['route' => ['cart.destroy',$unit->rowId], 'method' => 'delete'])}}
                                     <button type="submit" class="remove_cart btn btn-danger btn-sm" rel="2">
                                         <i class="fa fa-trash-o"></i>
                                     </button>
-                                    {{close()}}
+                                    {{Form::close()}}
                                 </td>
                             </tr>
                         @endforeach
                         </tbody>
                         <tfoot>
                         <tr>
-                            <td class="hidden-xs"></td>
+                            <td class="Form::hidden(-xs"></td>
                             <td class="total text-center">Total
                                 <b>${{Cart::instance(session('cartId'))->subtotal()}}</b>
-                            <td class="hidden-xs"></td>
+                            <td class="Form::hidden(-xs"></td>
                         </tr>
                         </tfoot>
                     </table>

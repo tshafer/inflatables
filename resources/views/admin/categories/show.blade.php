@@ -68,9 +68,9 @@
                 <div class="block-title">
                     <h2>DANGER ZONE</h2>
                 </div>
-                {!! Form::open(['route' => ['admin.categories.destroy', $category->id], 'method' => 'delete']) !!}
-                {!! Form::submit('DELETE CATEGORY', ['class' => 'btn btn-block btn-danger del']) !!}
-                {!! Form::close() !!}
+                {!! Form::Form::open(['route' => ['admin.categories.destroy', $category->id], 'method' => 'delete']) !!}
+                {!! Form::Form::submit('DELETE CATEGORY', ['class' => 'btn btn-block btn-danger del']) !!}
+                {!! Form::Form::close() !!}
                 <br/>
             </div>
         @if($category->products->count() > 0)
@@ -109,20 +109,20 @@
                                         @if(!$loop->first)
                                             <a class="btn btn-xs btn-warning"
                                                href="{{route('admin.products.moveup', $product->id)}}">
-                                                <i class="fa fa-arrow-up" aria-hidden="true"></i>
+                                                <i class="fa fa-arrow-up" aria-Form::hidden(="true"></i>
                                             </a>
                                             <a class="btn btn-xs btn-info"
                                                href="{{route('admin.products.movetop', $product->id)}}">
-                                                <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+                                                <i class="fa fa-arrow-circle-up" aria-Form::hidden(="true"></i>
                                             </a>
                                         @endif
                                         @if(!$loop->last)
                                             <a class="btn btn-xs btn-warning"
                                                href="{{route('admin.products.movedown', $product->id)}}"><i
-                                                        class="fa fa-arrow-down" aria-hidden="true"></i></a>
+                                                        class="fa fa-arrow-down" aria-Form::hidden(="true"></i></a>
                                                 <a class="btn btn-xs btn-info"
                                                    href="{{route('admin.products.movebottom', $product->id)}}"><i
-                                                            class="fa fa-arrow-circle-down" aria-hidden="true"></i></a>
+                                                            class="fa fa-arrow-circle-down" aria-Form::hidden(="true"></i></a>
                                         @endif
                                     @endif
                                 </td>

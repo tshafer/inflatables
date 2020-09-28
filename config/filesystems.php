@@ -1,18 +1,20 @@
 <?php
+
 return [
+
     /*
     |--------------------------------------------------------------------------
     | Default Filesystem Disk
     |--------------------------------------------------------------------------
     |
     | Here you may specify the default filesystem disk that should be used
-    | by the framework. A "local" driver, as well as a variety of cloud
-    | based drivers are available for your choosing. Just store away!
-    |
-    | Supported: "local", "ftp", "s3", "rackspace"
+    | by the framework. The "local" disk, as well as a variety of cloud
+    | based disks are available to your application. Just store away!
     |
     */
-    'default' => 'local',
+
+    'default' => env('FILESYSTEM_DRIVER', 'local'),
+
     /*
     |--------------------------------------------------------------------------
     | Default Cloud Filesystem Disk
@@ -23,7 +25,8 @@ return [
     | will be bound as the Cloud disk implementation in the container.
     |
     */
-    'cloud'   => 's3',
+
+    'cloud' => env('FILESYSTEM_CLOUD', 's3'),
     /*
     |--------------------------------------------------------------------------
     | Filesystem Disks
@@ -61,4 +64,19 @@ return [
             'bucket' => 'your-bucket',
         ],
     ],
+    /*
+    |--------------------------------------------------------------------------
+    | Symbolic Links
+    |--------------------------------------------------------------------------
+    |
+    | Here you may configure the symbolic links that will be created when the
+    | `storage:link` Artisan command is executed. The array keys should be
+    | the locations of the links and the values should be their targets.
+    |
+    */
+
+    'links' => [
+        public_path('storage') => storage_path('app/public'),
+    ],
+
 ];

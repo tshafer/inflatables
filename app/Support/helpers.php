@@ -1,5 +1,18 @@
 <?php
-
+    if (!function_exists('active_class')) {
+        /**
+         * Set a class of active based on the page.
+         *
+         * @param $path
+         *
+         * @return string
+         */
+        function active_class($path)
+        {
+            return request()->is($path) ? 'active' : '';
+        }
+    }
+    
 if ( ! function_exists('toolbar_link')) {
     /**
      * @param $route

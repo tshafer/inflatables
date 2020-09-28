@@ -82,9 +82,7 @@ class SlidersController extends Controller
 
         $slider->save();
 
-        flash('Slider Added!');
-
-        return redirect()->route('admin.sliders.show', [$slider->id]);
+        return redirect()->route('admin.sliders.show', [$slider->id])->with('message', 'Slider Added!');
     }
 
 
@@ -114,9 +112,7 @@ class SlidersController extends Controller
 
         $slider->save();
 
-        flash('Slider updated!');
-
-        return redirect()->route('admin.sliders.show', $slider->id);
+        return redirect()->route('admin.sliders.show', $slider->id)->with('message', 'Slider Added!');
     }
 
 
@@ -132,9 +128,7 @@ class SlidersController extends Controller
     {
         $slider->delete();
 
-        flash('Slider deleted!');
-
-        return redirect()->route('admin.sliders.index');
+        return redirect()->route('admin.sliders.index')->status('message', 'Slider deleted!');
     }
 
 
@@ -149,9 +143,7 @@ class SlidersController extends Controller
     {
         $slider->deleteMedia($imageId);
 
-        flash('Image deleted!');
-
-        return redirect()->back();
+        return redirect()->back()->with('message', 'Image deleted!');
     }
 
 }

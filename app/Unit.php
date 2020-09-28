@@ -8,12 +8,11 @@ use Gloudemans\Shoppingcart\CanBeBought;
 use Gloudemans\Shoppingcart\Contracts\Buyable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Sofa\Eloquence\Eloquence;
 
 class Unit extends Model implements Buyable
 {
 
-    use Linkable, Sortable, Attributes, Eloquence, SoftDeletes, CanBeBought;
+    use Linkable, Sortable, Attributes, SoftDeletes, CanBeBought;
 
     /**
      * The database table used by the model.
@@ -87,8 +86,18 @@ class Unit extends Model implements Buyable
      *
      * @return mixed
      */
-    //public function getPriceAttribute($price)
-    //{
-    //    return number_format((float)$price, 2);
-    //}
+    public function getPriceAttribute($price)
+    {
+       return $price ?: 0;
+    }
+
+        /**
+     * @param $price
+     *
+     * @return mixed
+     */
+    public function getWeightAttribute($weight)
+    {
+       return $weight ?: 0;
+    }
 }

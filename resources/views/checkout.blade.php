@@ -5,9 +5,9 @@
 @section('content')
 
     <div class="container main-container">
-        {{open(['route' => 'checkout.store'])}}
+        {{Form::open(['route' => 'checkout.store'])}}
         <div class="row">
-            @include('flash::messages')
+            @include('partials.flash')
             <div class="col-md-12">
                 <span class="title">CHECKOUT</span>
             </div>
@@ -17,41 +17,41 @@
 
                 <div class="row form-group">
                     <div class="col-md-6">
-                        {{ label('first_name')}} <span class="red">*</span>
-                        {{ input('first_name','first_name', old('first_name'), ['class' => 'form-control', 'required']) }}
+                        {{ Form::label('first_name')}} <span class="red">*</span>
+                        {{ Form::input('first_name','first_name', old('first_name'), ['class' => 'form-control', 'required']) }}
                     </div>
                     <div class="col-md-6">
-                        {{ label('last_name')}} <span class="red">*</span>
-                        {{ input('last_name','last_name', old('company_website'), ['class' => 'form-control','required']) }}
-                    </div>
-                </div>
-
-                <div class="row form-group">
-                    <div class="col-md-6">
-                        {{ label('company_name')}}
-                        {{ input('company_name','company_name', old('company_name'), ['class' => 'form-control']) }}
-                    </div>
-                    <div class="col-md-6">
-                        {{ label('company_website')}}
-                        {{ input('company_website','company_website', old('company_website'), ['class' => 'form-control']) }}
+                        {{ Form::label('last_name')}} <span class="red">*</span>
+                        {{ Form::input('last_name','last_name', old('company_website'), ['class' => 'form-control','required']) }}
                     </div>
                 </div>
 
                 <div class="row form-group">
                     <div class="col-md-6">
-                        {{ label('email') }} <span class="red">*</span>
-                        {{ input('email','email', old('email'), ['class' => 'form-control', 'required']) }}
+                        {{ Form::label('company_name')}}
+                        {{ Form::input('company_name','company_name', old('company_name'), ['class' => 'form-control']) }}
                     </div>
                     <div class="col-md-6">
-                        {{ label('Phone')}} <span class="red">*</span>
-                        {{ input('phone','phone', old('telephone'), ['class' => 'form-control']) }}
+                        {{ Form::label('company_website')}}
+                        {{ Form::input('company_website','company_website', old('company_website'), ['class' => 'form-control']) }}
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <div class="col-md-6">
+                        {{ Form::label('email') }} <span class="red">*</span>
+                        {{ Form::input('email','email', old('email'), ['class' => 'form-control', 'required']) }}
+                    </div>
+                    <div class="col-md-6">
+                        {{ Form::label('Phone')}} <span class="red">*</span>
+                        {{ Form::input('phone','phone', old('telephone'), ['class' => 'form-control']) }}
                     </div>
                 </div>
 
                 <div class="row form-group">
                     <div class="col-md-12">
-                        {{ label('message') }}
-                        {{ textarea('message', old('message'), ['class' => 'form-control', 'rows' => 5, 'max-length' => 1000]) }}
+                        {{ Form::label('message') }}
+                        {{ Form::textarea('message', old('message'), ['class' => 'form-control', 'rows' => 5, 'max-length' => 1000]) }}
                     </div>
                 </div>
             </div>
@@ -76,7 +76,7 @@
                                             <a href="{{route('product', [$unit->options->categorySlug, $unit->options->productSlug])}}">
                                                 <img src="{{$unit->options->image}}"
                                                      alt="{{$unit->options->product_name}}"
-                                                     title="{{$unit->options->product_name}}"/>
+                                                     title="{{$unit->options->product_name}}" width="100%"/>
                                             </a>
                                         @endif
                                     </div>
@@ -102,7 +102,7 @@
                     </tbody>
                     <tfoot>
                     <tr>
-                        <td class="hidden-xs"></td>
+                        <td class="Form::hidden(-xs"></td>
                         <td class="total text-center">Total <b>${{Cart::instance(session('cartId'))->subtotal()}}</b>
                     </tr>
                     </tfoot>
@@ -116,6 +116,6 @@
                 </div>
             </div>
         </div>
-        {{close()}}
+        {{Form::close()}}
     </div>
 @stop

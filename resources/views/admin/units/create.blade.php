@@ -4,10 +4,10 @@
 
 @section('content')
     <div class="row">
-        {!!open(['route' => 'admin.units.store', 'id' => 'unit-form', 'files' => true])!!}
+        {!!Form::open(['route' => 'admin.units.store', 'id' => 'unit-form', 'files' => true])!!}
 
         @include('admin.units.form')
 
-        {!!close()!!}
+        {!!Form::close()!!}
     </div>
 @stop

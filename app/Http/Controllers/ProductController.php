@@ -20,6 +20,7 @@ class ProductController extends Controller
         if ( ! $category->enabled) {
             return redirect()->back();
         }
+        
         if ( ! $product->enabled) {
             return redirect()->back();
         }

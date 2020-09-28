@@ -17,7 +17,7 @@
 
 .collapse {
   display: none;
-  visibility: hidden;
+  visibility: Form::hidden(;
 
   &.in      { display: block; visibility: visible; }
   tr&.in    { display: table-row; }
@@ -27,7 +27,7 @@
 .collapsing {
   position: relative;
   height: 0;
-  overflow: hidden;
+  overflow: Form::hidden(;
   .transition-property(~"height, visibility");
   .transition-duration(.35s);
   .transition-timing-function(ease);

@@ -10,6 +10,6 @@
 
         @include('admin.categories.form')
 
-        {!!close()!!}
+        {!!Form::close()!!}
     </div>
 @stop
